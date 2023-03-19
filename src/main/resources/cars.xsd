@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.nonder.com"
+           targetNamespace="http://www.nonder.com" elementFormDefault="qualified">
+
+    <xs:element name="getCarRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCarResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="car" type="tns:car"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="car">
+        <xs:sequence>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="modelYear" type="xs:int"/>
+            <xs:element name="bodyStyle" type="tns:bodyStyle"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="bodyStyle">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HATCHBACK"/>
+            <xs:enumeration value="SEDAN"/>
+            <xs:enumeration value="SUV"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
